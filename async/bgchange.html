@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BG Change</title>
+</head>
+<body>
+  <h1>Bg Changer</h1>
+  <button id="start">start</button>
+  <button id="stop">stop</button>
+  <script>
+    
+
+    const body = document.querySelector('body')
+    const start = document.querySelector('#start')
+    const stop = document.querySelector('#stop')
+    
+
+    const hex = "0123456789ABCDEF"
+    
+
+    let changeBg
+    
+    let randcolor = function(){
+      let color = '#'
+      for(let i = 0; i < 6; i++){
+        color += hex[Math.floor(Math.random() *16)]
+      }
+      console.log(color)
+      return color
+    }
+    
+    const changeBgColor = function(){
+      if(!changeBg){
+        changeBg = setInterval(Changer, 1000)
+      }
+
+      function Changer(){
+        body.style.backgroundColor = randcolor()
+      }
+    }
+
+    const stopBgColor = function(){
+      clearInterval(changeBg)
+      changeBg = null
+    }
+    start.addEventListener('click', changeBgColor)
+
+    stop.addEventListener('click',stopBgColor)
+
+  </script>
+</body>
+</html>

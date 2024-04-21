@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dom</title>
+</head>
+<body>
+  <div class="parent">
+    <!-- WeekDays -->
+    <div class="day">Sunday</div>
+    <div class="day">Monday</div>
+    <div class="day">Tuesday</div>
+    <div class="day">Wednesday</div>
+    <div class="day">Thursday</div>
+    <div class="day">Friday</div>
+    <div class="day">Saturday</div>
+  </div>
+  <script>
+    const parent = document.querySelector('.parent')
+    // console.log(parent);
+
+    // console.log(parent.children);
+    // console.log(parent.children[0]);
+    parent.children[0].style.fontSize = '25px'
+
+    const arr = Array.from(parent.children)
+    // console.log(arr)
+
+    arr.forEach( (a) => {
+      a.style.backgroundColor= 'skyblue'
+    })
+
+    const child = parent.firstElementChild
+
+    // console.log(parent.firstElementChild)
+    // console.log(parent.lastElementChild)
+
+    // console.log(child.nextElementSibling)
+    // previousElementSibling
+
+    const par = child.parentElement
+    // console.log(par)
+
+    console.log(par.childNodes)   
+    // NodeList adds all ,.. comments also
+    
+
+
+  </script>
+</body>
+</html>

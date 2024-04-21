@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    // promise : creation / consumption
+
+    const promiseOne = new Promise(function (resolve, reject) {
+
+      // Do any async task
+      // DB calls, cryptography , n/w calls...
+
+
+      setTimeout(function () {
+        // console.log('Async task One is completed')
+        // resolve()
+        // with resolve / without resolve 
+      }, 2000)
+
+    })
+
+    promiseOne.then(function () {
+      // console.log("PromiseOne consumed")
+    })
+
+    // without variable : direct chaining
+
+    new Promise(function (resolve, reject) {
+      setTimeout(function () {
+        // console.log('Async task Two is completed')
+        resolve()
+      }, 2000)
+    })
+      .then(function () {
+        // console.log("PromiseTwo consumed")
+      })
+
+    // Resolve use : Data / Response handling in .then()
+    // reject : error using .catch()
+    // resolve can send data to .then()
+
+    const promiseThree = new Promise(function (resolve, reject) {
+
+      setTimeout(function () {
+        // console.log('Async task Three is completed')
+        resolve({ username: "chandan", email: "ch@example.com" })
+        // resolve can send data to .then()
+        // mostly objects , and .. array , variable ..etc
+      }, 2000)
+
+    })
+
+    promiseThree.then(function (user) {
+      // console.log(`PromiseThree consumed and data is : ${user}`)
+      // console.log(` : ${user.username} ${user["email"]}`)
+
+    })
+
+    // Uses:     resolve    reject 
+    //           .then()   .catch()
+
+    const promiseFour = new Promise(function (resolve, reject) {
+      setTimeout(function () {
+        let error = false
+        if (!error) {
+          resolve({ username: "chandan", email: "ch@example.com" })
+        }
+        else {
+          reject("Error : Something went Wrong")
+        }
+      }, 1000)
+    })
+
+    // to get Data : chaining ( .then() )
+
+    // const username = promiseFour.then((user) => {
+    // console.log(user)
+    // return user.username
+    // })
+    // console.log(username)
+
+  // Chaining
+
+    promiseFour
+      .then((user) => {
+        // console.log(user)
+        return user.username
+      }).then((username) => {
+        // console.log(username)
+      }).catch((error) => {
+        // console.log(error)
+      }).finally(() => {
+        // console.log('Promise is Either Resolved or Rejected')
+      })
+
+// Async Await - Promise_Five
+
+    const promiseFive = new Promise(function (resolve, reject) {
+      setTimeout(function () {
+        let error = false   // true
+        if (!error) {
+          resolve({ username: "chandan", email: "ch@example.com" })
+        }
+        else {
+          reject("Error : Something went Wrong")
+        }
+      }, 1000)
+    })
+
+    async function consumePromiseFive(){
+      const response = await promiseFive
+      // console.log(response)
+    }
+
+    consumePromiseFive()
+
+// Async Await - using fetch()
+
+    // async function getAllUsers(){
+    //   const response  = await fetch('https://jsonplaceholder.typicode.com/users')
+
+    //   const data = response.json()
+    //   console.log(data)
+    // }
+  
+  // try catch - for handling {Error} in Async Await
+
+    // async function getAllUsers(){
+    //   try{
+    //     const response  = await fetch('https://jsonplaceholder.typicode.com/users')
+
+    //     const data = response.json()
+    //     console.log(data)
+    //     // console.log(response)
+
+    //   }
+      
+    //   catch (error){
+    //     console.log(error)
+    //   }
+    // }
+    // getAllUsers()
+
+  // using .then() .catch()
+
+    // it return : promise 
+
+      // fetch('https://jsonplaceholder.typicode.com/users')
+      // .then((response) => {
+      //   const data = response.json()
+      //   console.log(data)
+      // }).catch((error) => {
+      //   console.log(error)
+      // })
+
+    // it return : Object 
+    // if run the entire code , 
+      // first : fetch api data running , 
+      // after that : above code promiseFour , five executing
+
+      fetch('https://jsonplaceholder.typicode.com/users')
+      .then((response) => {
+        return response.json()
+      }).then((data)=> {
+        console.log(data)
+      }).catch((error) => {
+        console.log(error)
+      })
+
+      
+
+  </script>
+</body>
+
+</html>

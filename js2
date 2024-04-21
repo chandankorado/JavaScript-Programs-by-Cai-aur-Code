@@ -1,0 +1,101 @@
+00:00:00  -  DOM introduction
+00:18:25  -  All DOM selector
+00:59:58  -  How to create a new element
+01:27:42  -  Edit and remove DOM elements
+01:48:40  -  Let’s build 4 js projects
+
+03:22:53  -  Events in javascript
+
+	Event Propagation : Bubbling.. | Capturing..
+	stopPropagation()
+	preventDefault
+	removeIt
+03:59:49  -  Async code: task Queue Promise
+04:19:01  -  2 projects with async
+05:00:07  -  API request and v8 engine
+05:30:41  -  Promise in JavaScript
+  async task : 
+  	network request | 
+  	programming calculation | 
+  	programming interpret | 
+  	file accessing -> kernel access |
+  	database request -> other continent , calc in data
+  	cryptography
+  	
+  2 ways to use async programming : 
+  	 
+  	  1 -> using promises	( modern programming ) 
+  	  			:came in ES6 , before that Async Await was used
+  	  				and BlueBird lib for promises
+  				( will complete in future )
+  			mobile dev : sound device, camera ->  active
+
+  		States:  
+  			pending , fulfilled , rejected 
+
+			2 -> using Async Await	
+  				( wait until task finished )
+  	
+1.  Promise: 
+  	  : Object like Array , 
+  	  : new Promise - creating
+  	    : promise libraries	- [ Q , BlueBird ]
+  	    : came in ES6 , before that Async Await was used
+  	    	and BlueBird lib for promises, 
+  	    : BlueBird lib for promises - 
+            added to - nodejs (core JS) 
+  	    	no need to install , available by default 
+  	    	! ( npm i bluebird)
+      : take callback and reduce callback hell
+
+  Promise : Making | Consuming
+  	new Promise { fetch(url) or setTimeout }   			fetch -> object
+  	.then()   	->  responses , get data/response 
+          from promise after async task completed
+  	.catch()  	->  error
+  	.finally() 	->	default
+
+2.	Async Await	:
+		: no direct .catch()  block to handle {Error}
+		: use { try , catch } or { other : .then() .catch() }
+
+06:21:01  -  Now you know fetch
+	before fetch:
+		:request module in JS: 
+		:XHRequest
+			-> web grow : difficult to work with javascript framework
+										notably jQuery
+		:fetch API -> not included in nodejs
+				-> only when browser available
+				-> browser not available in nodejs ( engine removed it )
+				-> AbortController : can stop node request
+	fetch : process of fetching a resource from the network 
+				return promise :
+				 		resolve  , 
+						reject
+						response (E:404)
+		fetch(url , options)
+			options: headers [content-type], cors , navigate, method:'GET', body:
+			specification
+
+			fetch : 
+				1 -> data:{memory space} , Onfulfilled[] {404} , onRejection[]
+				2 -> web browser / node -> n/w request
+
+
+06:39:38  -  Object Oriented javascript
+
+07:11:40  -  Magic of prototype ,new keyword
+			 prototypal inheritance
+			 sePrototypeOf()
+			 this keyword won't work in Arrow function
+07:59:47  -  Call(super) and this 
+08:12:53  -  Class constructor
+08:39:29  -  Bind 
+08:51:07  -  Now you know objects PI
+
+09:10:53  -  Getters and Setters
+			 encapsulation like java
+09:42:16  -  Lexical scope and closure
+			 outer / inner func scope
+10:09:04  -  Javascript ends with a story

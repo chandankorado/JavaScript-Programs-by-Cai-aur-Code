@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Async</title>
+</head>
+<body>
+  <h1>Hello there</h1>
+  <button id="stop">stop</button>
+  <script>
+    const changeText  = () =>{
+      document.querySelector('h1').innerHTML = `Welcome`
+    }
+
+    const timeoutId = setTimeout(changeText, 2000)
+
+    document.getElementById('stop')
+    .addEventListener('click', () =>{
+      clearInterval(timeoutId)
+      // console.log('stopped')
+    })
+
+
+
+
+
+
+
+    // setTimeout( () => {
+    //   console.log('hello')
+    // }, 2000)
+
+    // const setTimeOutFunc = () => {
+    //   console.log("setTimeout called after 2s")
+    // } 
+    // setTimeout(setTimeOutFunc,2000)
+
+  // setInterval(() => {
+  //   console.log('interval')
+  // }, 1000)
+  // let n = 1
+  // const intervalId = setInterval(() => {
+    // console.log(n++)
+    // if(n == 4){
+      // clearInterval(intervalId)
+    // }
+  // }, 1000)
+
+  // clearInterval(intervalId)
+
+    // const timeoutId = setTimeout( () => {
+    //   console.log('setTimeout called')
+    // }, 2000)
+
+    // clearTimeout(timeoutId)
+
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KeyPress Checker</title>
+  <style>
+    table,th,tr,td{
+      border: 1px solid black;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="project">
+    <div id="insert">
+      <div class="key">press any key</div>
+    </div>
+  </div>
+  <script>
+    const insert = document.getElementById('insert')
+
+    window.addEventListener('keydown',(e) => {
+      insert.innerHTML = `
+       <table>
+         <tr>
+           <th>Key</th>
+           <th>KeyCode</th>
+           <th>Code</th>
+         </tr>
+         <tr>
+           <td>${e.key === " "?'space':e.key}</td>
+           <td>${e.keyCode}</td>
+           <td>${e.code}</d>
+         </tr>
+       </table>
+      `
+    })
+  </script>
+</body>
+
+</html>

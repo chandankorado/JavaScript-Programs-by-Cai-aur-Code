@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .counter{
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="counter">
+    <label class="content"">0</label><br>
+  <div id="btnContainer">
+    <button class="increase">increase</button>
+    <button class="reset">reset</button>
+    <button class="decrease">decrease</button>
+  </div>
+  </div>
+  <script>
+    content = document.getElementsByClassName("content");
+    increase = document.getElementsByClassName("increase");
+    reset = document.getElementsByClassName("reset");
+    decrease = document.getElementsByClassName("decrease");
+
+    count = 0;
+
+    increase.onclick = function(){ 
+      ++count;
+      content.textContent = count;
+    }
+    decrease.onclick = function(){ 
+      count--;
+      content.textContent = count;
+    }
+
+  </script>
+</body>
+</html>
